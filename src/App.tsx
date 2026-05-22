@@ -11,7 +11,7 @@ function App() {
   return (
     <BrowserRouter>
       <TopAppBar />
-      <main className="pt-16 space-y-md">
+      <main className="pt-16 space-y-md px-margin-mobile">
         <Routes>
           <Route path="/" element={<Dashboard />} />
           <Route path="/lunch-vote" element={<LunchVote />} />

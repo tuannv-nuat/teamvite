@@ -30,7 +30,7 @@ const BottomNavBar: React.FC<BottomNavBarProps> = ({
   };
 
   return (
-    <nav className="fixed bottom-0 left-0 right-0 z-50 flex justify-around items-center px-4 pb-4 pt-2 bg-surface backdrop-blur-2xl shadow-[0_-4px_20px_rgba(144,77,0,0.1)] rounded-t-lg mx-[20px]">
+    <nav className="fixed bottom-0 left-0 right-0 z-50 flex justify-around items-center px-4 pb-4 pt-2 bg-surface backdrop-blur-2xl shadow-[0_-4px_20px_rgba(144,77,0,0.1)] rounded-t-3xl">
       {items.map((item: NavItem, index: number) => {
         const active = isActive(item.path);
         return (

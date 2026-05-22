@@ -17,7 +17,7 @@ const ActivityLog: React.FC<ActivityLogProps> = ({ activities, onClear }) => {
         {activities.map((activity) => (
           <div
             key={activity.id}
-            className={`flex gap-4 p-4 rounded-3xl border-l-4 transition-all duration-500 ${activity.isNew ? 'bg-primary-fixed/20 border-primary-container animate-bounce-short' : activity.bgClass + ' ' + activity.borderClass}`}
+            className={`flex gap-4 p-4 rounded-full border-l-4 transition-all duration-500 ${activity.isNew ? 'bg-primary-fixed/20 border-primary-container animate-bounce-short' : activity.bgClass + ' ' + activity.borderClass}`}
           >
             <div className={`w-10 h-10 shrink-0 rounded-full flex items-center justify-center overflow-hidden ${activity.avatarBgClass}`}>
               <img alt={activity.user} src={activity.avatar} className="w-full h-full object-cover" />
