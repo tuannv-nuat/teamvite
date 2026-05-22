@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&amp;family=Inter:wght@400;600&amp;display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary": "#705d00",
+                        "tertiary-container": "#5bbe5d",
+                        "surface-container-lowest": "#ffffff",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary": "#ffffff",
+                        "secondary-fixed": "#ffe16d",
+                        "on-secondary-container": "#6e5c00",
+                        "surface-tint": "#904d00",
+                        "surface-container-low": "#f3f3f3",
+                        "primary-fixed-dim": "#ffb77d",
+                        "on-error": "#ffffff",
+                        "outline": "#897362",
+                        "inverse-surface": "#2f3131",
+                        "on-primary-fixed": "#2f1500",
+                        "on-tertiary-container": "#004910",
+                        "surface-bright": "#f9f9f9",
+                        "surface": "#f9f9f9",
+                        "primary": "#904d00",
+                        "on-surface-variant": "#564334",
+                        "on-primary-fixed-variant": "#6e3900",
+                        "on-secondary-fixed-variant": "#544600",
+                        "on-surface": "#1a1c1c",
+                        "secondary-fixed-dim": "#e9c400",
+                        "tertiary": "#006e1c",
+                        "on-tertiary-fixed-variant": "#005313",
+                        "error-container": "#ffdad6",
+                        "outline-variant": "#ddc1ae",
+                        "on-secondary-fixed": "#221b00",
+                        "surface-variant": "#e2e2e2",
+                        "surface-container": "#eeeeee",
+                        "on-background": "#1a1c1c",
+                        "on-error-container": "#93000a",
+                        "background": "#f9f9f9",
+                        "surface-container-high": "#e8e8e8",
+                        "tertiary-fixed-dim": "#78dc77",
+                        "inverse-on-surface": "#f1f1f1",
+                        "on-tertiary-fixed": "#002204",
+                        "surface-dim": "#dadada",
+                        "error": "#ba1a1a",
+                        "secondary-container": "#fcd400",
+                        "on-primary": "#ffffff",
+                        "tertiary-fixed": "#94f990",
+                        "primary-container": "#ff8c00",
+                        "on-primary-container": "#623200",
+                        "primary-fixed": "#ffdcc3",
+                        "inverse-primary": "#ffb77d",
+                        "surface-container-highest": "#e2e2e2"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-desktop": "32px",
+                        "gutter": "24px",
+                        "lg": "40px",
+                        "xl": "64px",
+                        "base": "8px",
+                        "md": "24px",
+                        "sm": "12px",
+                        "margin-mobile": "16px",
+                        "xs": "4px"
+                    },
+                    "fontFamily": {
+                        "headline-lg": ["Montserrat"],
+                        "body-lg": ["Inter"],
+                        "label-md": ["Inter"],
+                        "body-md": ["Inter"],
+                        "headline-md": ["Montserrat"],
+                        "headline-lg-mobile": ["Montserrat"],
+                        "display-lg": ["Montserrat"]
+                    },
+                    "fontSize": {
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "label-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "700" }],
+                        "headline-lg-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "700" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "800" }]
+                    }
+                },
+            },
+        }
+    </script>
+    <style>
+        .glass-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+
+        .bouncy-hover:hover {
+            transform: scale(1.03);
+            transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .active-tap:active {
+            transform: scale(0.95);
+        }
+
+        .sparkline {
+            stroke-dasharray: 100;
+            stroke-dashoffset: 100;
+            animation: dash 1.5s linear forwards;
+        }
+
+        @keyframes dash {
+            to {
+                stroke-dashoffset: 0;
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-background text-on-surface font-body-md">
+    <!-- TopAppBar -->
+    <header
+        class="flex justify-between items-center px-margin-mobile py-sm w-full sticky top-0 z-50 bg-surface/80 dark:bg-surface-dim/80 backdrop-blur-xl shadow-sm">
+        <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full overflow-hidden border-2 border-primary active-tap transition-all">
+                <img alt="User Profile"
+                    data-alt="A professional and friendly male portrait in a modern, brightly lit office environment. The lighting is warm and natural, casting soft shadows. The overall aesthetic is clean and vibrant, aligning with a premium fintech application's light-mode design with subtle orange accents."
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuBmkq03CIvqK7cNtAvVjb9yCILw4eGA5xnqd538AVzGoWNIow54mWq7ytW37NSzY7dReixWEN-OF60Ovkw27aXJeuWPnuZaX41jHR3KxWk_lszSIRU5VcBjQgXBTpdlkWJuQZG2Y-Ljw4plChuKlXTODCVy4LlJPPVbST8mbJt_IWD_fV_r-Bc4gExCmRaspfBOsu9KKEoLP8kXKoGVA5k4UfyxPXisHsEKTBs4urxojb3FN0cqgSHiUJQRRUyS-GKQKKFVrVMjgNE">
+            </div>
+            <h1 class="font-headline-lg-mobile text-headline-lg-mobile font-bold text-primary">TeamVibe</h1>
+        </div>
+        <button class="material-symbols-outlined text-primary text-2xl active-tap bouncy-hover">notifications</button>
+    </header>
+    <main class="pb-32 pt-6 px-margin-mobile max-w-md mx-auto space-y-8">
+        <!-- Fund Cards Section -->
+        <section class="space-y-4">
+            <div class="flex justify-between items-end">
+                <h2 class="font-headline-md text-headline-md text-on-surface">Budget Hub</h2>
+                <span class="text-label-md font-label-md text-primary bg-primary-fixed px-3 py-1 rounded-full">Live
+                    Now</span>
+            </div>
+            <div class="grid grid-cols-1 gap-4">
+                <!-- Quỹ Ăn Trưa -->
+                <div
+                    class="glass-card p-6 rounded-lg shadow-sm relative overflow-hidden group bouncy-hover active-tap transition-all cursor-pointer">
+                    <div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+                        <span class="material-symbols-outlined text-6xl">restaurant</span>
+                    </div>
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="bg-primary-container/20 p-2 rounded-xl">
+                            <span class="text-3xl">🍱</span>
+                        </div>
+                        <div class="text-right">
+                            <p class="font-label-md text-label-md text-on-surface-variant">Quỹ Ăn Trưa</p>
+                            <p class="font-headline-md text-headline-md text-primary">2.450.000đ</p>
+                        </div>
+                    </div>
+                    <!-- Mini Sparkline -->
+                    <div class="w-full h-12 flex items-end gap-1">
+                        <svg class="w-full h-full" viewBox="0 0 100 30">
+                            <path class="sparkline" d="M0,25 Q15,5 30,20 T60,10 T90,15 T100,5" fill="none"
+                                stroke="#904d00" stroke-width="2"></path>
+                        </svg>
+                    </div>
+                </div>
+                <!-- Quỹ Trà Đá -->
+                <div
+                    class="glass-card p-6 rounded-lg shadow-sm relative overflow-hidden group bouncy-hover active-tap transition-all cursor-pointer">
+                    <div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+                        <span class="material-symbols-outlined text-6xl">bakery_dining</span>
+                    </div>
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="bg-tertiary-container/20 p-2 rounded-xl">
+                            <span class="text-3xl">🧋</span>
+                        </div>
+                        <div class="text-right">
+                            <p class="font-label-md text-label-md text-on-surface-variant">Quỹ Trà Đá</p>
+                            <p class="font-headline-md text-headline-md text-tertiary">840.000đ</p>
+                        </div>
+                    </div>
+                    <div class="w-full h-12 flex items-end gap-1">
+                        <svg class="w-full h-full" viewBox="0 0 100 30">
+                            <path class="sparkline" d="M0,20 Q20,25 40,10 T70,15 T100,22" fill="none" stroke="#006e1c"
+                                stroke-width="2"></path>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Leaderboard section -->
+        <section class="space-y-4">
+            <h2 class="font-headline-md text-headline-md text-on-surface flex items-center gap-2">
+                <span>👑</span> Thánh Đóng Quỹ
+            </h2>
+            <div class="bg-surface-container-low rounded-lg p-2 space-y-2">
+                <!-- Rank 1 -->
+                <div
+                    class="flex items-center justify-between p-3 bg-white rounded-lg shadow-sm border-l-4 border-secondary-container">
+                    <div class="flex items-center gap-3">
+                        <span class="font-bold text-secondary italic">#1</span>
+                        <img alt="Avatar" class="w-10 h-10 rounded-full border-2 border-white shadow-sm"
+                            data-alt="A vibrant and professional portrait of a smiling woman in a creative studio. The lighting is high-contrast and warm, emphasizing a cheerful and reliable personality. The color palette features soft yellows and clean whites, fitting a high-end team collaboration app's aesthetic."
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuDVXLoI9rbpbijPx8umLZ6r5bJe2UQSyyggN32D2Rm7Nxyhup39vXOm3U0hYMkUqGSsTk-aeYwa2aPEIMznkZnEH3q3LTsc9_iajevdK5_MHKlSnlNp20Af26jRaJMYHhvtyMu5H6cKdU6NtuUmOFOi3q1Sn3ba1A1GSN1hIeBRIhvGPw0tUR9jjr2KEUjO6hM4yzdPEZBmoplXB54SXP7IGZamVD4FKXkI0TD3gP_ewCCDxGVwJySA3kRCldiJukuJCmz1Kob3sEo">
+                        <div>
+                            <p class="font-label-md text-label-md">Minh Anh</p>
+                            <p class="text-xs text-on-surface-variant">Top Contributor</p>
+                        </div>
+                    </div>
+                    <p class="font-bold text-primary">+500k</p>
+                </div>
+                <!-- Rank 2 -->
+                <div class="flex items-center justify-between p-3">
+                    <div class="flex items-center gap-3">
+                        <span class="font-bold text-on-surface-variant">#2</span>
+                        <img alt="Avatar" class="w-10 h-10 rounded-full"
+                            data-alt="A close-up portrait of a modern young professional male against a blurred urban background with golden hour lighting. The image captures a sense of ambition and friendliness. The visual style is polished and high-definition, consistent with a clean fintech UI theme."
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuDlURTHyqSYeveCgPVAqZZueYHwdYRpLFSpDXgbYNIcQnvFQJGphizqPmFJdRE0CYUrIeAyhDhAZ6_ctsM9qdL2HRCQcJpJdLgal8S-5-SDfwjIhvHw08TvALxElFg0qP_JdJJyV8ZXtrcZOmFs58DtWmDyCQ92Sla1Rr-LWC1Eb8Hh8Pj78IOaS-Z7RLeLh34mMFqw_FSRil79fdE5HsouZP4s1Xc7N8Zwc-qKC_1-8a1l9sLoztQ4vq3JaigrG75VjH2qSZv21eM">
+                        <div>
+                            <p class="font-label-md text-label-md">Hoàng Nam</p>
+                            <p class="text-xs text-on-surface-variant">Active Giver</p>
+                        </div>
+                    </div>
+                    <p class="font-bold text-primary">+350k</p>
+                </div>
+            </div>
+        </section>
+        <!-- Unpaid List -->
+        <section class="space-y-4">
+            <h2 class="font-headline-md text-headline-md text-on-surface">Ai chưa đóng? 🧐</h2>
+            <div class="flex gap-4 overflow-x-auto pb-4 -mx-margin-mobile px-margin-mobile no-scrollbar">
+                <div class="flex-shrink-0 w-32 bg-white p-4 rounded-lg shadow-sm text-center space-y-3 bouncy-hover">
+                    <img alt="Avatar"
+                        class="w-12 h-12 rounded-full mx-auto grayscale group-hover:grayscale-0 transition-all"
+                        data-alt="A detailed portrait of a stylish man with a friendly expression. The scene is bright with soft, diffused lighting that creates a welcoming atmosphere. The colors are natural yet punchy, reflecting the energetic and social nature of the TeamVibe brand identity."
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuDi0xpCf7IugY046FLjk2B9YvKimAMrbEVaN8FZx1Kx6PdGWSGs7G9RK0QN6GIfrFd-w0yIOmNmBDf8LLcMPHG0hBeVdNQTjZP5K_NNeTTyymL1269autKc7Du3eMy56Y7uEsvLJgI2ppbYbotnbZ8LU1-5s4iH2B_KvY_jMEaYdyD23fzFp68J1uRiKJtSpaGe5_CCWOcyMVGuDooH_D2xO8D9A0wYhiM0BRPhCKV7x4HkliNiaUyDZxCdoOyq_iBikA7VpckNYAI">
+                    <p class="font-label-md text-label-md truncate">Lê Hải</p>
+                    <button
+                        class="text-xs font-bold text-white bg-primary px-3 py-1 rounded-full active-tap">Remind</button>
+                </div>
+                <div class="flex-shrink-0 w-32 bg-white p-4 rounded-lg shadow-sm text-center space-y-3 bouncy-hover">
+                    <img alt="Avatar" class="w-12 h-12 rounded-full mx-auto grayscale"
+                        data-alt="A portrait of a cheerful young woman with bright, engaging eyes. The lighting is clean and modern, typical of a high-end corporate lifestyle photo. The aesthetic is warm and welcoming, using high-saturation tones to match a vibrant social productivity platform."
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuC2z3R_nlfx2BKZ-rKT7VFetvxE9m2EuGOAIWmjRbSxzcwoBem0lGh1j8cbK79l1kNf4wwqEyruBzTXL-KOpW32ReDpOYMikzJPgtray1aUezAqEwBoeaczB3anzfLNUmtRXknBxZE0h1BNmmGiTgTDX2jqqTobx_FU1EiHVwhVNtPlGrBgTvWkORk0JZNxb6KEIB8O6HJh2TjtnoNCRbHlLgrKfy7qes9OHMv7SN_PlFACV7lDtS5GfL9q3m0Mq-RAcMGy1r_XJOs">
+                    <p class="font-label-md text-label-md truncate">Thùy Chi</p>
+                    <button
+                        class="text-xs font-bold text-white bg-primary px-3 py-1 rounded-full active-tap">Remind</button>
+                </div>
+                <div class="flex-shrink-0 w-32 bg-white p-4 rounded-lg shadow-sm text-center space-y-3 bouncy-hover">
+                    <img alt="Avatar" class="w-12 h-12 rounded-full mx-auto grayscale"
+                        data-alt="Professional male portrait with a bright, minimalist background. The lighting is professional and soft, enhancing the friendly facial expression. The composition is clean and fits perfectly within a modern digital workspace or finance app interface."
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuB0maICRwzkUWIgWHeb5N9xYKe59PV4_f0Z3_DEFYrKLRfwk_XL3857SDER-2MwIVO8o56yUqlV5_5Z-Iq0Ia-SKJZBqFK4sRrED8zTvKegP5NtacE9b_t-teaWCx6mOK6ZWRLYwbzvDSf-ckQNiSFPBbGXGytQPzqC4ZoQDNVzYJyCat-vN3mNJoBuVv7ZPcrTG8PEXN8yyzBz7RHYakcWeX_CtY69yTUxSXHa43b2x3tUR_EHbDET997K39mZQd5tGrTUZ3swAMs">
+                    <p class="font-label-md text-label-md truncate">Văn Bình</p>
+                    <button
+                        class="text-xs font-bold text-white bg-primary px-3 py-1 rounded-full active-tap">Remind</button>
+                </div>
+            </div>
+        </section>
+        <!-- QR Section -->
+        <section
+            class="glass-card p-8 rounded-lg shadow-lg text-center space-y-6 relative border-2 border-dashed border-primary/20">
+            <h3 class="font-headline-md text-headline-md text-primary">Nạp Quỹ Nhanh</h3>
+            <div class="bg-white p-4 rounded-xl inline-block shadow-inner relative group cursor-pointer">
+                <div class="w-48 h-48 bg-surface-container flex items-center justify-center relative">
+                    <!-- Fake QR generated via patterns -->
+                    <div class="grid grid-cols-6 grid-rows-6 gap-1 w-40 h-40 opacity-80">
+                        <div class="bg-on-surface"></div>
+                        <div class="bg-on-surface"></div>
+                        <div class="bg-on-surface"></div>
+                        <div class="bg-on-surface"></div>
+                        <div class="bg-on-surface"></div>
+                        <div class="bg-on-surface"></div>
+                        <div class="bg-on-surface"></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div class="bg-on-surface"></div>
+                        <div class="bg-on-surface"></div>
+                        <div></div>
+                        <div class="bg-on-surface"></div>
+                        <div class="bg-on-surface"></div>
+                        <div></div>
+                        <div class="bg-on-surface"></div>
+                        <div class="bg-on-surface"></div>
+                        <div></div>
+                        <div class="bg-on-surface"></div>
+                        <div class="bg-on-surface"></div>
+                        <div></div>
+                        <div class="bg-on-surface"></div>
+                        <div class="bg-on-surface"></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div class="bg-on-surface"></div>
+                        <div class="bg-on-surface"></div>
+                        <div class="bg-on-surface"></div>
+                        <div class="bg-on-surface"></div>
+                        <div class="bg-on-surface"></div>
+                        <div class="bg-on-surface"></div>
+                        <div class="bg-on-surface"></div>
+                    </div>
+                    <div class="absolute inset-0 flex items-center justify-center">
+                        <div class="bg-white p-2 rounded-lg shadow-md">
+                            <span class="text-2xl">💰</span>
+                        </div>
+                    </div>
+                </div>
+                <div
+                    class="absolute inset-0 bg-primary/10 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity rounded-xl">
+                    <span class="bg-white text-primary font-bold px-4 py-2 rounded-full shadow-lg">Download QR</span>
+                </div>
+            </div>
+            <p class="text-label-md font-label-md text-on-surface-variant">Quét mã để đóng 50k vào Quỹ Ăn Trưa</p>
+        </section>
+        <!-- Transaction History -->
+        <section class="space-y-4">
+            <div class="flex justify-between items-center">
+                <h2 class="font-headline-md text-headline-md text-on-surface">Giao dịch gần đây</h2>
+                <button class="text-primary font-bold text-sm">Tất cả</button>
+            </div>
+            <div class="space-y-3">
+                <!-- Transaction 1 -->
+                <div class="bg-white p-4 rounded-lg shadow-sm flex items-center gap-4 active-tap cursor-pointer">
+                    <div
+                        class="w-12 h-12 bg-error-container/20 rounded-full flex items-center justify-center text-error">
+                        <span class="material-symbols-outlined">shopping_cart</span>
+                    </div>
+                    <div class="flex-1">
+                        <p class="font-bold text-on-surface">Mua 2kg cam</p>
+                        <p class="text-xs text-on-surface-variant">Hôm nay, 10:30 • Quỹ Trà Đá</p>
+                    </div>
+                    <p class="font-bold text-error">-60k</p>
+                </div>
+                <!-- Transaction 2 -->
+                <div class="bg-white p-4 rounded-lg shadow-sm flex items-center gap-4 active-tap cursor-pointer">
+                    <div
+                        class="w-12 h-12 bg-tertiary-container/20 rounded-full flex items-center justify-center text-tertiary">
+                        <span class="material-symbols-outlined">payments</span>
+                    </div>
+                    <div class="flex-1">
+                        <p class="font-bold text-on-surface">Lương đóng quỹ</p>
+                        <p class="text-xs text-on-surface-variant">Hôm qua, 15:45 • Quỹ Ăn Trưa</p>
+                    </div>
+                    <p class="font-bold text-tertiary">+100k</p>
+                </div>
+                <!-- Transaction 3 -->
+                <div class="bg-white p-4 rounded-lg shadow-sm flex items-center gap-4 active-tap cursor-pointer">
+                    <div
+                        class="w-12 h-12 bg-error-container/20 rounded-full flex items-center justify-center text-error">
+                        <span class="material-symbols-outlined">lunch_dining</span>
+                    </div>
+                    <div class="flex-1">
+                        <p class="font-bold text-on-surface">Cơm tấm đêm</p>
+                        <p class="text-xs text-on-surface-variant">12 Th08, 19:20 • Quỹ Ăn Trưa</p>
+                    </div>
+                    <p class="font-bold text-error">-450k</p>
+                </div>
+            </div>
+        </section>
+    </main>
+    <!-- BottomNavBar -->
+    <nav
+        class="fixed bottom-0 w-full z-50 flex justify-around items-center px-4 pb-4 pt-2 bg-surface/70 dark:bg-surface-dim/70 backdrop-blur-2xl shadow-[0_-4px_20px_rgba(144,77,0,0.1)] rounded-t-lg">
+        <div
+            class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-colors active-tap">
+            <span class="material-symbols-outlined">home</span>
+            <span class="font-label-md text-label-md">Home</span>
+        </div>
+        <div
+            class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-colors active-tap">
+            <span class="material-symbols-outlined">restaurant</span>
+            <span class="font-label-md text-label-md">Lunch</span>
+        </div>
+        <div
+            class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-colors active-tap">
+            <span class="material-symbols-outlined">campaign</span>
+            <span class="font-label-md text-label-md">Ping</span>
+        </div>
+        <!-- Active Tab: Fund -->
+        <div
+            class="flex flex-col items-center justify-center bg-secondary-container text-on-secondary-container rounded-xl px-4 py-1 active-tap">
+            <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">payments</span>
+            <span class="font-label-md text-label-md">Fund</span>
+        </div>
+        <div
+            class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-colors active-tap">
+            <span class="material-symbols-outlined">bakery_dining</span>
+            <span class="font-label-md text-label-md">Breakfast</span>
+        </div>
+    </nav>
+    <script>
+        // Simple micro-interaction for reminding
+        document.querySelectorAll('button').forEach(btn => {
+            if (btn.innerText === 'Remind') {
+                btn.addEventListener('click', function () {
+                    this.innerText = 'Sent! ✅';
+                    this.classList.replace('bg-primary', 'bg-tertiary');
+                    setTimeout(() => {
+                        this.innerText = 'Remind';
+                        this.classList.replace('bg-tertiary', 'bg-primary');
+                    }, 2000);
+                });
+            }
+        });
+    </script>
+</body>
+
+</html>

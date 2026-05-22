@@ -1,0 +1,284 @@
+<!DOCTYPE html><html class="light" lang="vi"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&amp;family=Inter:wght@400;600&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        .bouncy-tap:active {
+            transform: scale(0.92);
+        }
+        @keyframes pulse-soft {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+        .animate-pulse-soft {
+            animation: pulse-soft 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary": "#705d00",
+                        "tertiary-container": "#5bbe5d",
+                        "surface-container-lowest": "#ffffff",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary": "#ffffff",
+                        "secondary-fixed": "#ffe16d",
+                        "on-secondary-container": "#6e5c00",
+                        "surface-tint": "#904d00",
+                        "surface-container-low": "#f3f3f3",
+                        "primary-fixed-dim": "#ffb77d",
+                        "on-error": "#ffffff",
+                        "outline": "#897362",
+                        "inverse-surface": "#2f3131",
+                        "on-primary-fixed": "#2f1500",
+                        "on-tertiary-container": "#004910",
+                        "surface-bright": "#f9f9f9",
+                        "surface": "#f9f9f9",
+                        "primary": "#904d00",
+                        "on-surface-variant": "#564334",
+                        "on-primary-fixed-variant": "#6e3900",
+                        "on-secondary-fixed-variant": "#544600",
+                        "on-surface": "#1a1c1c",
+                        "secondary-fixed-dim": "#e9c400",
+                        "tertiary": "#006e1c",
+                        "on-tertiary-fixed-variant": "#005313",
+                        "error-container": "#ffdad6",
+                        "outline-variant": "#ddc1ae",
+                        "on-secondary-fixed": "#221b00",
+                        "surface-variant": "#e2e2e2",
+                        "surface-container": "#eeeeee",
+                        "on-background": "#1a1c1c",
+                        "on-error-container": "#93000a",
+                        "background": "#f9f9f9",
+                        "surface-container-high": "#e8e8e8",
+                        "tertiary-fixed-dim": "#78dc77",
+                        "inverse-on-surface": "#f1f1f1",
+                        "on-tertiary-fixed": "#002204",
+                        "surface-dim": "#dadada",
+                        "error": "#ba1a1a",
+                        "secondary-container": "#fcd400",
+                        "on-primary": "#ffffff",
+                        "tertiary-fixed": "#94f990",
+                        "primary-container": "#ff8c00",
+                        "on-primary-container": "#623200",
+                        "primary-fixed": "#ffdcc3",
+                        "inverse-primary": "#ffb77d",
+                        "surface-container-highest": "#e2e2e2"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-desktop": "32px",
+                        "gutter": "24px",
+                        "lg": "40px",
+                        "xl": "64px",
+                        "base": "8px",
+                        "md": "24px",
+                        "sm": "12px",
+                        "margin-mobile": "16px",
+                        "xs": "4px"
+                    },
+                    "fontFamily": {
+                        "headline-lg": ["Montserrat"],
+                        "body-lg": ["Inter"],
+                        "label-md": ["Inter"],
+                        "body-md": ["Inter"],
+                        "headline-md": ["Montserrat"],
+                        "headline-lg-mobile": ["Montserrat"],
+                        "display-lg": ["Montserrat"]
+                    },
+                    "fontSize": {
+                        "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                        "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                        "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "800"}]
+                    }
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background text-on-surface font-body-md text-body-md min-h-screen pb-32">
+<!-- TopAppBar -->
+<header class="bg-surface/80 dark:bg-surface-dim/80 backdrop-blur-xl text-primary font-headline-md text-headline-md-mobile flex justify-between items-center px-margin-mobile py-sm w-full sticky top-0 z-50 shadow-sm">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full overflow-hidden border-2 border-primary-container">
+<img alt="User" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCHKn6lUB-9hjqP0m1t-pVs3nuyKSfscvxdGI0aHyuSEsLNMVessiv3_44_ouL4pZ5qsJmRTiew257lbN_fDANCNWTxSmKR4EtQV1TEQxIPYg5O9Qg0FoApU-PWjNugYBZ08Z14OF67V2jP9LR0Httb4z0LxyOA9YE6KHzr6CN0SVF7WP7c4BgqSq6-9URaVnLXlagzol8cz4M7opLok8g45v21duNG6H-WGtvskFxp8WgpkrqxqMauT1LncwfW7ohOGig_yOtW_Vo">
+</div>
+<span class="font-headline-lg-mobile text-headline-lg-mobile font-bold text-primary">TeamVibe</span>
+</div>
+<button class="material-symbols-outlined p-2 rounded-full hover:bg-surface-container transition-colors" data-icon="notifications">notifications</button>
+</header>
+<main class="px-margin-mobile pt-sm space-y-md">
+<!-- Header Section -->
+<div class="space-y-sm">
+<div class="flex justify-between items-end">
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface">Hôm nay ăn gì? 🍲</h1>
+<div class="bg-error-container text-on-error-container px-3 py-1 rounded-full flex items-center gap-1 animate-pulse-soft">
+<span class="material-symbols-outlined text-[18px]" data-icon="schedule">schedule</span>
+<span class="font-label-md text-label-md">10:30 (45m)</span>
+</div>
+</div>
+<!-- AI Suggestion Bubble -->
+<div class="relative inline-flex items-center gap-2 bg-secondary-container text-on-secondary-container px-4 py-3 rounded-2xl rounded-tl-none shadow-sm border border-secondary/10">
+<span class="material-symbols-outlined text-secondary" data-icon="lightbulb" style="font-variation-settings: 'FILL' 1;">lightbulb</span>
+<p class="font-label-md text-label-md leading-tight">Trời nóng 35°C -&gt; <span class="font-bold">Bún chả</span> là chân ái! 🔥</p>
+</div>
+</div>
+<!-- Food List -->
+<section class="space-y-gutter">
+<!-- Card 1 -->
+<div class="group relative bg-surface-container-lowest rounded-lg shadow-[0_8px_30px_rgb(144,77,0,0.08)] overflow-hidden transition-all duration-300 hover:shadow-[0_20px_40px_rgb(144,77,0,0.12)] border border-surface-variant">
+<div class="h-48 w-full relative">
+<img class="w-full h-full object-cover" data-alt="A delicious and vibrant traditional Vietnamese dish of Bun Dau Mam Tom, featuring neatly arranged fried tofu cubes, thin rice noodles, fresh green herbs, and thinly sliced pork on a large circular bamboo tray. The scene is brightly lit with warm, natural sunlight that highlights the textures and rich colors of the food. The background is a clean, modern wooden table in a high-end restaurant setting with a soft, cheerful light-mode atmosphere." src="https://lh3.googleusercontent.com/aida-public/AB6AXuChFhqEjtS5hLEUnmmbvhc0dajsSyoLJZkHJuliQr2rCsUT317snIcTUBx2hXq6hVkpdycTUAPHE9qph189B12Ns7Xrzp6NiHbrYZMTJZxOjlgUyQb2dqg2tAt3UDWLhcN_jLUTq4YezIKhTZ33KQpPa27fA3MbYethNOj-hZTdM0Vg-fPBbXekYIdFTm_ic5NgL_iiKZEFCbYLMPFrRSfQ-0bswgR8jVKbYueTxZ176hO4s0UOXHiPapEFl5-QPlzv9-dxH4p7URs">
+<div class="absolute top-4 right-4 bg-primary text-on-primary px-3 py-1 rounded-full font-label-md text-label-md flex items-center gap-1 shadow-lg">
+<span class="material-symbols-outlined text-[16px]" data-icon="thumb_up" style="font-variation-settings: 'FILL' 1;">thumb_up</span>
+                        12 Votes
+                    </div>
+</div>
+<div class="p-md space-y-sm">
+<div class="flex justify-between items-start">
+<div>
+<h3 class="font-headline-md text-headline-md">Bún Đậu Mắm Tôm</h3>
+<div class="flex -space-x-2 mt-2">
+<img alt="voter" class="w-8 h-8 rounded-full border-2 border-surface-container-lowest" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBRcHiE_dI5hbro0FHmQGcjszXmsByIhIE3lmDHgQiiK7UUK9FOKjXU5xj84fllKnv6sBH4f3uMzL3bSjyPvWl0Yn-NIeGnqkDbuQTuhJx4pugUCJOsqjg1fwl41G8oSEwMv8pHHMpEaV2Fuchq29X5rTy423k2Kgl4C34BhzW_zCvkGS-4tsIkHZx0zmJMHvm8LYPbp-Npggyyua2IufpVqFGD5w4Wm2OcoYV31ykSvoQv7vD6zqt7k5BPLhEux1Ps_Jesu6ZLWTU">
+<img alt="voter" class="w-8 h-8 rounded-full border-2 border-surface-container-lowest" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDKyybiACCFuruZ3xdak_KZmIFlQ65cn4ar_hR0u0TSVYASuFbhQS8I5ryF6587ydpjvzqM7zwlTJ7aez0KiPm1Mwvf54v4xb2UoVptDvZ7uGyHztunnLpPIFdPkSFhkRuwDZyqDFtcTYvTj6vxIZ6tWx1EsI314M7hikunXdL2PlL03Givch1TKvuv_Fne05OpP28tlv2QuGGtBuFIMaO_iRumlvIrEZ7PKwXuNTKLC9dfE55__YtmnTbeNbrSNzTkJJDT-Ek1ifE">
+<img alt="voter" class="w-8 h-8 rounded-full border-2 border-surface-container-lowest" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDP3ne4BDQ-9QCbY642gQqvLhhdL1yIBaH76MNzQudyEzzhhENf_tXqVbLZB0sgg4oXH3OcC3oBUrWhQ8qvwndvT9QRDqZT0_hygT2vNcvwrRAbITlAyzjsGQVRebmJCelx3OYOrVEDUGH6yhSgEGmVP-v_xoDqRJe6rZTeDMjM_r-rO5z0VWBRVsOH8Grez0XRayDFxn2OCAmOWdvEbHbMFceN2L_16S6C7_sk3B-lgQhpgriXtaW9_KDo04QEb8-tV4w8ra0T_9k">
+<div class="w-8 h-8 rounded-full bg-surface-container-high border-2 border-surface-container-lowest flex items-center justify-center text-[10px] font-bold">+9</div>
+</div>
+</div>
+<button class="bouncy-tap bg-primary text-on-primary font-label-md text-label-md px-6 py-2.5 rounded-xl shadow-md hover:scale-105 transition-all active:scale-90 flex items-center gap-2">
+                            VOTE
+                        </button>
+</div>
+<!-- Progress Bar -->
+<div class="w-full h-3 bg-surface-container-high rounded-full overflow-hidden">
+<div class="h-full bg-gradient-to-r from-secondary-container to-primary-container rounded-full shadow-[2px_0_8px_rgba(255,140,0,0.4)]" style="width: 75%"></div>
+</div>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="group relative bg-surface-container-lowest rounded-lg shadow-[0_8px_30px_rgb(144,77,0,0.08)] overflow-hidden border border-surface-variant">
+<div class="h-48 w-full relative">
+<img class="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-opacity" data-alt="A gourmet presentation of Hainanese Chicken Rice, featuring succulent, tender poached chicken slices served alongside aromatic, golden-yellow ginger rice and a trio of colorful dipping sauces. The dish is presented on a minimalist white ceramic plate under bright, professional studio lighting that emphasizes the silky skin of the chicken and the individual grains of rice. The mood is sophisticated and appetizing, set within a modern culinary environment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCv2zJQtOPsvfUhLxpmtmtekWr4-l-C9eujWPKlcUu2gLXmd8rzap0EySBR_cqTBIDS7eeSzY2_TbkOygbmmefre1LvMncRPyT4r0w-_3AiXKmByNXiAjl0gg7AV2lEMWu_FQ-XbSagChOi4H0HkSjh7gWjQvzJS_0eXDc0aUwoYC1INzQ95uEBpR1kv8xOAsSDP269XCi65gqqM_2HxuoW-sBV0MFRe0TeNvuZoMBPeTBaXHSqOMdRxlC_py2DhcI9Wl862IJlCF4">
+<div class="absolute top-4 right-4 bg-surface/90 text-on-surface px-3 py-1 rounded-full font-label-md text-label-md flex items-center gap-1 shadow-md">
+<span class="material-symbols-outlined text-[16px]" data-icon="thumb_up">thumb_up</span>
+                        8 Votes
+                    </div>
+</div>
+<div class="p-md space-y-sm">
+<div class="flex justify-between items-start">
+<div>
+<h3 class="font-headline-md text-headline-md">Cơm Gà Hải Nam</h3>
+<p class="text-on-surface-variant font-label-md text-label-md mt-1">Đang chờ ý kiến của bạn...</p>
+</div>
+<button class="bouncy-tap border-2 border-primary text-primary font-label-md text-label-md px-6 py-2 rounded-xl hover:bg-primary/5 transition-all active:scale-90">
+                            VOTE
+                        </button>
+</div>
+<div class="w-full h-3 bg-surface-container-high rounded-full overflow-hidden">
+<div class="h-full bg-gradient-to-r from-secondary-container to-primary-container rounded-full" style="width: 50%"></div>
+</div>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="group relative bg-surface-container-lowest rounded-lg shadow-[0_8px_30px_rgb(144,77,0,0.08)] overflow-hidden border border-surface-variant">
+<div class="h-48 w-full relative">
+<img class="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-opacity" data-alt="A steaming hot bowl of traditional Vietnamese Pho Bo beef noodle soup, overflowing with thin rice noodles, tender slices of rare beef, and a rich, clear bone broth garnished with fresh cilantro and scallions. Soft, misty steam rises gracefully from the bowl, set against a bright, airy breakfast cafe atmosphere. High-key lighting creates a vibrant, energetic morning mood, highlighting the freshness of the ingredients and the high-energy social vibe of the space." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBFPz85JkNUbdQEipfM6mhqaywPLpW-5L-xjG6K09j_4cYC87wKypOWcA2tjyHoEYIAvFpUYkns9dUTThRnD5xt570PnAR1qMRMFAIu2aHn-E7ZYwia-PHnKUSKm4dulMUuxup537LXycHP0M4TjrJYHGurh3pilnGFrEAtpcz6_CN0_SJlP_HWX15O1VNTx8kz-ME_4i2RfnrC5Wg3pcQsKW1Tzn_zhy_9qBQyBs7Qn0OT1CP56NBwWrrh_cwWFlE4MWurbqnncaA">
+<div class="absolute top-4 right-4 bg-surface/90 text-on-surface px-3 py-1 rounded-full font-label-md text-label-md flex items-center gap-1 shadow-md">
+<span class="material-symbols-outlined text-[16px]" data-icon="thumb_up">thumb_up</span>
+                        5 Votes
+                    </div>
+</div>
+<div class="p-md space-y-sm">
+<div class="flex justify-between items-start">
+<div>
+<h3 class="font-headline-md text-headline-md">Phở Bò</h3>
+</div>
+<button class="bouncy-tap border-2 border-primary text-primary font-label-md text-label-md px-6 py-2 rounded-xl hover:bg-primary/5 transition-all active:scale-90">
+                            VOTE
+                        </button>
+</div>
+<div class="w-full h-3 bg-surface-container-high rounded-full overflow-hidden">
+<div class="h-full bg-gradient-to-r from-secondary-container to-primary-container rounded-full" style="width: 30%"></div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Floating Wheel Action -->
+<div class="fixed bottom-28 right-6 z-40">
+<button class="bouncy-tap bg-tertiary-container text-on-tertiary w-16 h-16 rounded-full shadow-xl flex items-center justify-center hover:scale-110 transition-transform relative group" onclick="spinWheel()">
+<span class="material-symbols-outlined text-[32px]" data-icon="casino">casino</span>
+<!-- Tooltip -->
+<span class="absolute right-20 bg-inverse-surface text-inverse-on-surface px-3 py-1.5 rounded-lg text-label-md whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity shadow-lg">Random món nè! 🎡</span>
+</button>
+</div>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 w-full z-50 flex justify-around items-center px-4 pb-4 pt-2 bg-surface/70 dark:bg-surface-dim/70 backdrop-blur-2xl shadow-[0_-4px_20px_rgba(144,77,0,0.1)] rounded-t-lg">
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="font-label-md text-label-md">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-secondary-container text-on-secondary-container rounded-xl px-4 py-1" href="#">
+<span class="material-symbols-outlined" data-icon="restaurant" style="font-variation-settings: 'FILL' 1;">restaurant</span>
+<span class="font-label-md text-label-md">Lunch</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="campaign">campaign</span>
+<span class="font-label-md text-label-md">Ping</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="payments">payments</span>
+<span class="font-label-md text-label-md">Fund</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="bakery_dining">bakery_dining</span>
+<span class="font-label-md text-label-md">Breakfast</span>
+</a>
+</nav>
+<script>
+        function spinWheel() {
+            const btn = document.querySelector('[data-icon="casino"]').parentElement;
+            btn.classList.add('rotate-[360deg]');
+            setTimeout(() => {
+                btn.classList.remove('rotate-[360deg]');
+                alert("✨ Đang tìm món ngon cho bạn... Thử Bún Chả nhé! ✨");
+            }, 600);
+        }
+
+        // Add visual feedback on click for buttons
+        document.querySelectorAll('.bouncy-tap').forEach(button => {
+            button.addEventListener('mousedown', () => {
+                button.style.transform = 'scale(0.92)';
+            });
+            button.addEventListener('mouseup', () => {
+                button.style.transform = '';
+            });
+            button.addEventListener('mouseleave', () => {
+                button.style.transform = '';
+            });
+        });
+    </script>
+</body></html>

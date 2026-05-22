@@ -1,0 +1,279 @@
+<!DOCTYPE html><html class="light" lang="vi"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&amp;family=Inter:wght@400;600&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "secondary": "#705d00",
+                    "tertiary-container": "#5bbe5d",
+                    "surface-container-lowest": "#ffffff",
+                    "on-tertiary": "#ffffff",
+                    "on-secondary": "#ffffff",
+                    "secondary-fixed": "#ffe16d",
+                    "on-secondary-container": "#6e5c00",
+                    "surface-tint": "#904d00",
+                    "surface-container-low": "#f3f3f3",
+                    "primary-fixed-dim": "#ffb77d",
+                    "on-error": "#ffffff",
+                    "outline": "#897362",
+                    "inverse-surface": "#2f3131",
+                    "on-primary-fixed": "#2f1500",
+                    "on-tertiary-container": "#004910",
+                    "surface-bright": "#f9f9f9",
+                    "surface": "#f9f9f9",
+                    "primary": "#904d00",
+                    "on-surface-variant": "#564334",
+                    "on-primary-fixed-variant": "#6e3900",
+                    "on-secondary-fixed-variant": "#544600",
+                    "on-surface": "#1a1c1c",
+                    "secondary-fixed-dim": "#e9c400",
+                    "tertiary": "#006e1c",
+                    "on-tertiary-fixed-variant": "#005313",
+                    "error-container": "#ffdad6",
+                    "outline-variant": "#ddc1ae",
+                    "on-secondary-fixed": "#221b00",
+                    "surface-variant": "#e2e2e2",
+                    "surface-container": "#eeeeee",
+                    "on-background": "#1a1c1c",
+                    "on-error-container": "#93000a",
+                    "background": "#f9f9f9",
+                    "surface-container-high": "#e8e8e8",
+                    "tertiary-fixed-dim": "#78dc77",
+                    "inverse-on-surface": "#f1f1f1",
+                    "on-tertiary-fixed": "#002204",
+                    "surface-dim": "#dadada",
+                    "error": "#ba1a1a",
+                    "secondary-container": "#fcd400",
+                    "on-primary": "#ffffff",
+                    "tertiary-fixed": "#94f990",
+                    "primary-container": "#ff8c00",
+                    "on-primary-container": "#623200",
+                    "primary-fixed": "#ffdcc3",
+                    "inverse-primary": "#ffb77d",
+                    "surface-container-highest": "#e2e2e2"
+            },
+            "borderRadius": {
+                    "DEFAULT": "1rem",
+                    "lg": "2rem",
+                    "xl": "3rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "margin-desktop": "32px",
+                    "gutter": "24px",
+                    "lg": "40px",
+                    "xl": "64px",
+                    "base": "8px",
+                    "md": "24px",
+                    "sm": "12px",
+                    "margin-mobile": "16px",
+                    "xs": "4px"
+            },
+            "fontFamily": {
+                    "headline-lg": ["Montserrat"],
+                    "body-lg": ["Inter"],
+                    "label-md": ["Inter"],
+                    "body-md": ["Inter"],
+                    "headline-md": ["Montserrat"],
+                    "headline-lg-mobile": ["Montserrat"],
+                    "display-lg": ["Montserrat"]
+            },
+            "fontSize": {
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                    "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "800"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .ping-glow:active {
+            box-shadow: 0 0 25px currentColor;
+        }
+        .glass-sidebar {
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        .pulse-dot {
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(0, 110, 28, 0.7); }
+            70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(0, 110, 28, 0); }
+            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(0, 110, 28, 0); }
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md text-body-md min-h-screen pb-24 overflow-x-hidden">
+<!-- TopAppBar -->
+<header class="bg-surface/80 dark:bg-surface-dim/80 backdrop-blur-xl flex justify-between items-center px-margin-mobile py-sm w-full sticky top-0 z-50 shadow-sm">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-primary-fixed overflow-hidden ring-2 ring-white">
+<img alt="User" class="w-full h-full object-cover" data-alt="A high-quality 3D rendered avatar of a stylish young professional with a friendly smile, set against a vibrant, soft orange background. The lighting is warm and cinematic, reflecting a modern tech-savvy culture. This image represents the energetic and collaborative spirit of the TeamVibe brand." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCdzMzIUg153-O_dXqgSgD0_3aU2vkWNPFbZvgvcSoMrT0H9paAOGPMfwLFaQApImGpEbfsSvVyU5vy_1k8t3kVCb-nsc6IlfgQs0bnJ99HK6HfXRimnSUV25biGdT_CnZbD33pBgFSe8MrhKdXKArVI4n_-YNIRiRu1M8K7Kn6u2UeK6xV4n-cKx3ARvz5ytiPe3Fxs4w6DimEcAM64b8AoNzgU5FHi8jKIHXBLmtVIF3-2IK27cKiGxTcOEPuuzKBmYRXgNm2D2k">
+</div>
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile font-bold text-primary">TeamVibe</h1>
+</div>
+<div class="flex items-center gap-sm">
+<button class="material-symbols-outlined text-primary hover:scale-105 transition-transform duration-200" data-icon="notifications">notifications</button>
+</div>
+</header>
+<main class="px-margin-mobile pt-md space-y-lg">
+<!-- Welcome Section -->
+<section class="space-y-xs">
+<div class="flex items-center gap-2">
+<span class="block w-2 h-2 rounded-full bg-tertiary pulse-dot"></span>
+<p class="text-on-surface-variant font-label-md text-label-md">12 đồng nghiệp đang online</p>
+</div>
+<h2 class="font-headline-md text-headline-md text-on-surface">Cần gì, Ping nấy! ⚡</h2>
+</section>
+<!-- Ping Grid -->
+<section class="grid grid-cols-2 gap-4">
+<!-- Ping Item: Open Door -->
+<button class="ping-glow flex flex-col items-center justify-center aspect-square p-4 rounded-lg bg-surface-container-lowest shadow-sm border border-outline-variant/30 text-primary transition-all duration-150 active:scale-90 hover:scale-[1.03] text-primary" onclick="triggerPing('🚪 Mở cửa')">
+<span class="text-5xl mb-2">🚪</span>
+<span class="font-headline-md text-headline-md">Mở cửa</span>
+</button>
+<!-- Ping Item: Restroom -->
+<button class="ping-glow flex flex-col items-center justify-center aspect-square p-4 rounded-lg bg-surface-container-lowest shadow-sm border border-outline-variant/30 text-secondary transition-all duration-150 active:scale-90 hover:scale-[1.03]" onclick="triggerPing('🚽 Đi vệ sinh')">
+<span class="text-5xl mb-2">🚽</span>
+<span class="font-headline-md text-headline-md">Đi vệ sinh</span>
+</button>
+<!-- Ping Item: Cafe -->
+<button class="ping-glow flex flex-col items-center justify-center aspect-square p-4 rounded-lg bg-secondary-container shadow-sm text-on-secondary-container transition-all duration-150 active:scale-90 hover:scale-[1.03]" onclick="triggerPing('☕ Cafe?')">
+<span class="text-5xl mb-2">☕</span>
+<span class="font-headline-md text-headline-md">Cafe?</span>
+</button>
+<!-- Ping Item: Shipper -->
+<button class="ping-glow flex flex-col items-center justify-center aspect-square p-4 rounded-lg bg-surface-container-lowest shadow-sm border border-outline-variant/30 text-primary-container transition-all duration-150 active:scale-90 hover:scale-[1.03]" onclick="triggerPing('📦 Shipper tới')">
+<span class="text-5xl mb-2">📦</span>
+<span class="font-headline-md text-headline-md">Shipper</span>
+</button>
+<!-- Ping Item: Meeting -->
+<button class="ping-glow flex flex-col items-center justify-center aspect-square p-4 rounded-lg bg-error-container shadow-sm text-on-error-container transition-all duration-150 active:scale-90 hover:scale-[1.03]" onclick="triggerPing('🔥 Họp gấp!')">
+<span class="text-5xl mb-2">🔥</span>
+<span class="font-headline-md text-headline-md">Họp gấp!</span>
+</button>
+<!-- Ping Item: Milk Tea -->
+<button class="ping-glow flex flex-col items-center justify-center aspect-square p-4 rounded-lg bg-tertiary-fixed shadow-sm text-on-tertiary-fixed transition-all duration-150 active:scale-90 hover:scale-[1.03]" onclick="triggerPing('🥤 Trà sữa?')">
+<span class="text-5xl mb-2">🥤</span>
+<span class="font-headline-md text-headline-md">Trà sữa?</span>
+</button>
+<!-- Ping Item: Game -->
+<button class="col-span-2 flex items-center justify-center gap-4 p-6 rounded-lg bg-inverse-surface shadow-lg text-surface-bright transition-all duration-150 active:scale-95 hover:scale-[1.01]" onclick="triggerPing('🎮 ARAM 1 trận?')">
+<span class="text-4xl">🎮</span>
+<span class="font-headline-md text-headline-md">Làm ván ARAM không?</span>
+</button>
+</section>
+<!-- Realtime Activity Log -->
+<section class="space-y-md">
+<div class="flex justify-between items-end">
+<h3 class="font-headline-md text-headline-md text-on-surface">Hoạt động</h3>
+<span class="text-label-md font-label-md text-primary">Xóa hết</span>
+</div>
+<div class="space-y-sm" id="activity-log">
+<!-- Activity Card 1 -->
+<div class="flex gap-4 p-4 rounded-lg bg-surface-container-low border-l-4 border-primary">
+<div class="w-10 h-10 shrink-0 rounded-full bg-secondary-fixed flex items-center justify-center overflow-hidden">
+<img alt="Tuan" data-alt="Close-up portrait of a young male with short dark hair and trendy glasses, styled in a vibrant illustrative way. The lighting is bright and cheerful, set against a warm yellow background that matches the energetic UI of the TeamVibe application." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCiA3-eEu2fVkIUU960mpTrhsgy1Of2ZJtA4QYNbNiNj6z4XYe5dFR8O_E7Cy96EMAE9HSwNCodL6udAjVaV1g_yIFeEVkseh6UsDwwYB_-maaBP78b9XuJDVmLSMNoIw2mSJ7YTi28Ii9YgPBafYmAl_9URio8r1bvpEwi0Bz4hx2R8NXgHHlMXqqRshhjnSrRlfROGZcwiFZWg1CedrImckWjEywlX0lleCPIuOfj3d4MF_0lUWhQ-QNyroW3V4iUSUjjt-y_AQU">
+</div>
+<div class="flex-1">
+<p class="font-body-md text-body-md"><span class="font-bold">Tuấn</span> đang cần mở cửa 🚪</p>
+<p class="text-xs text-on-surface-variant">1 phút trước</p>
+</div>
+</div>
+<!-- Activity Card 2 -->
+<div class="flex gap-4 p-4 rounded-lg bg-surface-container-low border-l-4 border-tertiary">
+<div class="w-10 h-10 shrink-0 rounded-full bg-tertiary-fixed flex items-center justify-center overflow-hidden">
+<img alt="Linh" data-alt="A portrait of a cheerful young woman with long wavy hair and a friendly expression, depicted in a modern digital illustration style. The background is a soft mint green, providing a fresh and youthful look that complements the high-energy social tool aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBvyehDbOi5vsK0XdU5dkzTMsy3M1LbTuTe0kz4-ZGeu1FKEp0UZI9rwk95edk0fooN5gES7R00CmMj6F-h5eBy8tsUaL5pyPG_qCbmXkRu9WVIqV75bOB0QqPMy5FotiOFSnRAtgrMump9RDxSmotBpL0T8ZrhYHN_Jl7p0yweqRR3PGFGmZl3yN9cgB8QV7nyysNsJUq80cnEXDWpOCQdCeo3JlnjnA5Lee6tqiDYiwis38KQc_hnf7oYox4UNTJjP0WwCe5B83k">
+</div>
+<div class="flex-1">
+<p class="font-body-md text-body-md"><span class="font-bold">Linh:</span> Cafe đê ☕</p>
+<p class="text-xs text-primary font-bold">Vừa xong</p>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 w-full z-50 flex justify-around items-center px-4 pb-4 pt-2 bg-surface/70 dark:bg-surface-dim/70 backdrop-blur-2xl shadow-[0_-4px_20px_rgba(144,77,0,0.1)] rounded-t-lg">
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="font-label-md text-label-md">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="restaurant">restaurant</span>
+<span class="font-label-md text-label-md">Lunch</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-secondary-container text-on-secondary-container rounded-xl px-4 py-1" href="#">
+<span class="material-symbols-outlined" data-icon="campaign" style="font-variation-settings: 'FILL' 1;">campaign</span>
+<span class="font-label-md text-label-md">Ping</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="payments">payments</span>
+<span class="font-label-md text-label-md">Fund</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="bakery_dining">bakery_dining</span>
+<span class="font-label-md text-label-md">Breakfast</span>
+</a>
+</nav>
+<script>
+        function triggerPing(label) {
+            const log = document.getElementById('activity-log');
+            const newEntry = document.createElement('div');
+            newEntry.className = "flex gap-4 p-4 rounded-lg bg-primary-fixed/20 border-l-4 border-primary-container animate-bounce";
+            
+            // Random user name for demo
+            const users = ["Hùng", "Mai", "Kiên", "Trang"];
+            const randomUser = users[Math.floor(Math.random() * users.length)];
+            
+            newEntry.innerHTML = `
+                <div class="w-10 h-10 shrink-0 rounded-full bg-primary-fixed flex items-center justify-center overflow-hidden">
+                    <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=${randomUser}" alt="${randomUser}" class="w-full h-full">
+                </div>
+                <div class="flex-1">
+                    <p class="font-body-md text-body-md"><span class="font-bold">${randomUser}:</span> ${label}</p>
+                    <p class="text-xs text-primary font-bold">Vừa xong</p>
+                </div>
+            `;
+            
+            log.prepend(newEntry);
+            
+            // Remove bounce after animation
+            setTimeout(() => {
+                newEntry.classList.remove('animate-bounce');
+                newEntry.classList.add('transition-all', 'duration-500');
+            }, 1000);
+
+            // Simple vibration feedback if supported
+            if (navigator.vibrate) {
+                navigator.vibrate(50);
+            }
+        }
+
+        // Simulating realtime updates
+        setInterval(() => {
+            const times = document.querySelectorAll('#activity-log .text-xs');
+            times.forEach(t => {
+                if (t.innerText === 'Vừa xong') {
+                    // Stay "Vừa xong" for a bit then become minutes
+                }
+            });
+        }, 60000);
+    </script>
+</body></html>

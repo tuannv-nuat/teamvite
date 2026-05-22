@@ -1,0 +1,278 @@
+<!DOCTYPE html><html class="light" lang="vi"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&amp;family=Inter:wght@400;600&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "secondary": "#705d00",
+                    "tertiary-container": "#5bbe5d",
+                    "surface-container-lowest": "#ffffff",
+                    "on-tertiary": "#ffffff",
+                    "on-secondary": "#ffffff",
+                    "secondary-fixed": "#ffe16d",
+                    "on-secondary-container": "#6e5c00",
+                    "surface-tint": "#904d00",
+                    "surface-container-low": "#f3f3f3",
+                    "primary-fixed-dim": "#ffb77d",
+                    "on-error": "#ffffff",
+                    "outline": "#897362",
+                    "inverse-surface": "#2f3131",
+                    "on-primary-fixed": "#2f1500",
+                    "on-tertiary-container": "#004910",
+                    "surface-bright": "#f9f9f9",
+                    "surface": "#f9f9f9",
+                    "primary": "#904d00",
+                    "on-surface-variant": "#564334",
+                    "on-primary-fixed-variant": "#6e3900",
+                    "on-secondary-fixed-variant": "#544600",
+                    "on-surface": "#1a1c1c",
+                    "secondary-fixed-dim": "#e9c400",
+                    "tertiary": "#006e1c",
+                    "on-tertiary-fixed-variant": "#005313",
+                    "error-container": "#ffdad6",
+                    "outline-variant": "#ddc1ae",
+                    "on-secondary-fixed": "#221b00",
+                    "surface-variant": "#e2e2e2",
+                    "surface-container": "#eeeeee",
+                    "on-background": "#1a1c1c",
+                    "on-error-container": "#93000a",
+                    "background": "#f9f9f9",
+                    "surface-container-high": "#e8e8e8",
+                    "tertiary-fixed-dim": "#78dc77",
+                    "inverse-on-surface": "#f1f1f1",
+                    "on-tertiary-fixed": "#002204",
+                    "surface-dim": "#dadada",
+                    "error": "#ba1a1a",
+                    "secondary-container": "#fcd400",
+                    "on-primary": "#ffffff",
+                    "tertiary-fixed": "#94f990",
+                    "primary-container": "#ff8c00",
+                    "on-primary-container": "#623200",
+                    "primary-fixed": "#ffdcc3",
+                    "inverse-primary": "#ffb77d",
+                    "surface-container-highest": "#e2e2e2"
+            },
+            "borderRadius": {
+                    "DEFAULT": "1rem",
+                    "lg": "2rem",
+                    "xl": "3rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "margin-desktop": "32px",
+                    "gutter": "24px",
+                    "lg": "40px",
+                    "xl": "64px",
+                    "base": "8px",
+                    "md": "24px",
+                    "sm": "12px",
+                    "margin-mobile": "16px",
+                    "xs": "4px"
+            },
+            "fontFamily": {
+                    "headline-lg": ["Montserrat"],
+                    "body-lg": ["Inter"],
+                    "label-md": ["Inter"],
+                    "body-md": ["Inter"],
+                    "headline-md": ["Montserrat"],
+                    "headline-lg-mobile": ["Montserrat"],
+                    "display-lg": ["Montserrat"]
+            },
+            "fontSize": {
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                    "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "800"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-nav {
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+        .bouncy-tap:active {
+            transform: scale(0.95);
+        }
+        .ambient-shadow {
+            box-shadow: 0 10px 30px -5px rgba(144, 77, 0, 0.15), 0 4px 6px -2px rgba(144, 77, 0, 0.05);
+        }
+        .pulse-status {
+            animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: .5; }
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md selection:bg-primary-fixed">
+<!-- TopAppBar -->
+<header class="bg-surface/80 dark:bg-surface-dim/80 backdrop-blur-xl text-primary dark:text-primary-fixed-dim docked full-width top-0 no-border shadow-sm flex justify-between items-center px-margin-mobile py-sm w-full sticky top-0 z-50">
+<div class="flex items-center gap-sm">
+<div class="w-10 h-10 rounded-full overflow-hidden border-2 border-primary-container">
+<img alt="User" class="w-full h-full object-cover" data-alt="A professional yet friendly close-up portrait of a young creative professional in a modern office setting. The lighting is soft and natural, emphasizing a bright, high-key atmosphere. The overall aesthetic is clean and minimalist, aligning with a vibrant modern design system featuring warm tonal accents." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD28w92QFHqkQKjgBSQGrvyw6ICywU01yFub3ELbBHV3XOXbkGSwNubZoW0QNpyQeETzxXo3A5ci5Tbnl312-gQConUQ49Li14PZKAcSzFowV5cfnVGBVvr6D2MmnKLnTWHTjsLoUkwaf2Bbn3yve0ZwrtOJL-Hw9CYR1DU_kQx36VjZTlXgBfFn0Pdi1C8WigEDEKarqzPHCIm3Hbri3JM3pI-4-m9mU92DkDq8EcboydLtgi68YOCqdODvtgbKQ6vTYGuZaNkkBs">
+</div>
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile font-bold text-primary dark:text-primary-fixed-dim">TeamVibe</h1>
+</div>
+<button class="material-symbols-outlined text-on-surface-variant hover:scale-105 transition-transform duration-200" data-icon="notifications">notifications</button>
+</header>
+<main class="px-margin-mobile py-md pb-32 space-y-lg">
+<!-- Hero Section -->
+<section class="relative overflow-hidden rounded-lg bg-primary-container p-md text-on-primary-container shadow-lg">
+<div class="relative z-10 space-y-xs">
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile">Sáng mai ăn gì? 🥐</h2>
+<p class="text-on-primary-container/80 font-label-md">Chọn món và chốt kèo trước 9h tối nay nhé!</p>
+</div>
+<div class="absolute -right-4 -bottom-4 opacity-20">
+<span class="material-symbols-outlined text-[120px]" data-icon="bakery_dining">bakery_dining</span>
+</div>
+</section>
+<!-- Menu Options -->
+<section class="space-y-sm">
+<div class="flex items-center justify-between">
+<h3 class="font-headline-md text-headline-md text-on-surface">Menu đề xuất</h3>
+<span class="text-primary font-label-md">3 món mới</span>
+</div>
+<div class="grid grid-cols-1 gap-sm">
+<!-- Option 1: Bánh mì -->
+<div class="bg-surface-container-lowest p-sm rounded-lg flex items-center gap-md ambient-shadow border border-outline-variant/30 hover:scale-[1.02] transition-transform duration-300">
+<div class="w-16 h-16 bg-secondary-fixed rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-secondary text-3xl" data-icon="breakfast_dining">breakfast_dining</span>
+</div>
+<div class="flex-1">
+<p class="font-headline-md text-on-surface">Bánh mì</p>
+<p class="text-on-surface-variant text-label-md">Thịt nguội, Pate, Chả</p>
+</div>
+<div class="flex flex-col items-end gap-xs">
+<span class="bg-tertiary-container text-on-tertiary text-[10px] px-2 py-0.5 rounded-full font-bold uppercase tracking-wider">Hot</span>
+<div class="flex -space-x-2">
+<img class="w-6 h-6 rounded-full border-2 border-white" data-alt="A small, stylized avatar circle of a person smiling, set against a clean white background. The lighting is bright and cheerful, matching a modern social app's visual language with high contrast and vibrant energy." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDbhV4EVcGP4KohGOK0mg2PeVkAEI9xqZsWhxpUSX6KaDGarr80GMVJ-_IMq-sw86Es7MM7IweV5f3g1PTwIrkXZntlaNIOyv-EsGNESU5oyHmL9hK_DwVhwlkyg6SzvM1BN2jKpQeeuBlvBks8IS871wjotHfjCnRSsOwsOqe55XgT_AQhtJb6ROIUaJ-Pa7BUMGGSBrKLbz85xhJksk66zONWRy3mZacsjkqeUJ7F_Twpe1QGfxhvZ1JmevSrlOI3IXN3U63QoOA">
+<img class="w-6 h-6 rounded-full border-2 border-white" data-alt="A small, minimalist avatar of a person with colorful glasses, part of a high-end UI design. The mood is professional yet playful, using a soft pastel color palette and clean lines to represent a team member." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCenJpIw38SUUrzTPRKCFa-8NR5PauDgsTchFil3QsKMVvkW6xrju5cWbsSU0_hzH9qVw6n_6Kt89LljYcvMALXJtXBLk0FkaxCl0ailioxuNSw841nbc2J2EIZiXLtwCoQSnxaFJgxiKn9ah1ReCjH8LO_grlKWTT6PqjwYYXsmYw8RZTqQm4VUZkG4Wtnrar4RCQftDuza00AyBwah5mztw4ryc7RdporK9o7WQJAZUt8Woojxszm5w1gX69i5U6KXSDOp567EFM">
+<div class="w-6 h-6 rounded-full bg-surface-container flex items-center justify-center text-[10px] font-bold border-2 border-white">+3</div>
+</div>
+</div>
+</div>
+<!-- Option 2: Xôi xéo -->
+<div class="bg-surface-container-lowest p-sm rounded-lg flex items-center gap-md ambient-shadow border border-outline-variant/30 hover:scale-[1.02] transition-transform duration-300">
+<div class="w-16 h-16 bg-primary-fixed rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-3xl" data-icon="rice_bowl">rice_bowl</span>
+</div>
+<div class="flex-1">
+<p class="font-headline-md text-on-surface">Xôi xéo</p>
+<p class="text-on-surface-variant text-label-md">Hành phi, đậu xanh</p>
+</div>
+<div class="flex flex-col items-end gap-xs">
+<div class="flex -space-x-2">
+<img class="w-6 h-6 rounded-full border-2 border-white" data-alt="A minimalist avatar icon featuring a friendly illustrated character in a flat design style. The colors are warm and inviting, fitting seamlessly into a high-energy collaboration platform with glassmorphic elements." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAsag9Wp5PuIbkNLH_nR-IVM2ExFCeIjgv90LP2YaweJx8oaGCYjEwt1kFm3U1uzUByfJ-FqCcZoIT1VOlyiVIPpjAs8dj1v1uk11I4wKfNc9D8wzqNLsx7k7P84tW5SEU1PijcWDkLHeb3KCcgPpeODxXvUjNRXeNWfAtnVoNCn5xejeL1AYhWkl6JZiVZwbQ4z0Z3BCm_ys6sN0XCf4p4kOEZ35DnbSBYitLmAosjEg0Y-XhZm9jE6znMeqSnZFm0IsHQnROCQ_w">
+<div class="w-6 h-6 rounded-full bg-surface-container flex items-center justify-center text-[10px] font-bold border-2 border-white">+1</div>
+</div>
+</div>
+</div>
+<!-- Option 3: Bún cá -->
+<div class="bg-surface-container-lowest p-sm rounded-lg flex items-center gap-md ambient-shadow border border-outline-variant/30 hover:scale-[1.02] transition-transform duration-300">
+<div class="w-16 h-16 bg-tertiary-fixed rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-tertiary text-3xl" data-icon="ramen_dining">ramen_dining</span>
+</div>
+<div class="flex-1">
+<p class="font-headline-md text-on-surface">Bún cá</p>
+<p class="text-on-surface-variant text-label-md">Cá chiên giòn, dọc mùng</p>
+</div>
+<div class="flex flex-col items-end gap-xs">
+<div class="flex -space-x-2">
+<img class="w-6 h-6 rounded-full border-2 border-white" data-alt="A soft-focus, modern avatar of a professional woman with a bright background. The aesthetic is high-quality and crisp, designed for a modern mobile application interface that prioritizes clean typography and generous negative space." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAKbg0ZgbX2qqOpbwQas2dOWzaUlVe2tJIM13v6VXPxsk_3mPO8dWNzfVxL_Z_YaWmirPtNjbjjCHmt15a4y-3WWtYRjPSniOgjZd8cBkrRbejvCm0LDZ4T1OLu06TKsGYV1HXCpMGm0j9YUqBZ7MYYpMlYrPTSRTptM-WPrG2U1RN3T1YTYbYlLmF4I-j6y2FtzlCbF6awBo14r4shfu8fgLccNm9_vSgRf3wJz3SYg55chzXwFIIvFa44w1OXITD2nVOMmub78FY">
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Assignee Section -->
+<section class="bg-surface-container rounded-lg p-md space-y-md border border-outline-variant/20">
+<div class="flex items-center justify-between">
+<h3 class="font-headline-md text-headline-md text-on-surface">Ai đi mua?</h3>
+<span class="material-symbols-outlined text-primary" data-icon="person_search">person_search</span>
+</div>
+<div class="flex items-center gap-md bg-surface-container-lowest p-sm rounded-full ambient-shadow">
+<div class="relative">
+<img class="w-12 h-12 rounded-full object-cover border-2 border-primary" data-alt="A detailed portrait of a helpful-looking team member with a warm smile. The lighting is cinematic and focused, set in a contemporary office environment with subtle bokeh. The style is clean, vibrant, and energetic, following a modern design language." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB0TzlE-W_6-rZpeB9g1sYe3tOJBDZ6CVBi0Q6c_flvXR-50dh9WSiS-XG1mPgmd7QeO1tpg8G-hvAXlSfCAggcwGots3UpajDHdKAubDL-TsydR7RSaMUVdzJrWreUSbL27lX646Z4OKjkYCaS6yD-UsBspNZLNqw0C594lz4rQLss1S7eK_ZZGDRL7sXDVtZMsw4i3d_m2t4Cb_GzivEdmmoA6c85pTXjQrykF0aZLJvHGdY0bWG6ERv3gVCL7G8_yeSRioJVHl0">
+<div class="absolute -bottom-1 -right-1 w-4 h-4 bg-tertiary-container rounded-full border-2 border-white pulse-status"></div>
+</div>
+<div class="flex-1">
+<p class="font-bold text-on-surface text-body-md">Hùng đã nhận kèo! 🏃‍♂️</p>
+<p class="text-on-surface-variant text-label-md">Sẽ giao lúc 8:30 AM</p>
+</div>
+<button class="bg-primary text-on-primary px-4 py-2 rounded-full font-label-md bouncy-tap shadow-md">Cảm ơn!</button>
+</div>
+</section>
+<!-- Bill Split Section -->
+<section class="bg-secondary-container/30 rounded-lg p-md border-2 border-dashed border-secondary-container flex flex-col items-center justify-center gap-sm text-center">
+<span class="material-symbols-outlined text-secondary text-4xl" data-icon="payments">payments</span>
+<div>
+<p class="font-headline-md text-secondary">Tạm tính: 35k/người</p>
+<p class="text-on-secondary-container/70 text-label-md">Bao gồm phí ship &amp; hộp</p>
+</div>
+<div class="w-full h-3 bg-surface-container rounded-full mt-sm overflow-hidden">
+<div class="h-full w-[85%] bg-gradient-to-r from-secondary-fixed to-secondary rounded-full shadow-[0_0_8px_rgba(112,93,0,0.3)]"></div>
+</div>
+<p class="text-[10px] font-bold text-secondary uppercase tracking-widest mt-xs">12/15 người đã chốt</p>
+</section>
+<!-- Floating Decor -->
+<div class="flex justify-center gap-xl opacity-30 pt-md">
+<span class="material-symbols-outlined text-5xl" data-icon="croissant">toast</span>
+<span class="material-symbols-outlined text-5xl" data-icon="coffee">coffee</span>
+<span class="material-symbols-outlined text-5xl" data-icon="egg_alt">egg_alt</span>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="bg-surface/70 dark:bg-surface-dim/70 backdrop-blur-2xl text-primary dark:text-primary-fixed-dim docked full-width bottom-0 rounded-t-lg no-border shadow-[0_-4px_20px_rgba(144,77,0,0.1)] fixed bottom-0 w-full z-50 flex justify-around items-center px-4 pb-4 pt-2">
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-colors bouncy-tap" href="#">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="font-label-md text-label-md">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-colors bouncy-tap" href="#">
+<span class="material-symbols-outlined" data-icon="restaurant">restaurant</span>
+<span class="font-label-md text-label-md">Lunch</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-colors bouncy-tap" href="#">
+<span class="material-symbols-outlined" data-icon="campaign">campaign</span>
+<span class="font-label-md text-label-md">Ping</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-colors bouncy-tap" href="#">
+<span class="material-symbols-outlined" data-icon="payments">payments</span>
+<span class="font-label-md text-label-md">Fund</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-secondary-container text-on-secondary-container rounded-xl px-4 py-1 bouncy-tap" href="#">
+<span class="material-symbols-outlined" data-icon="bakery_dining">bakery_dining</span>
+<span class="font-label-md text-label-md font-bold">Breakfast</span>
+</a>
+</nav>
+<script>
+        // Simple micro-interaction for active states
+        document.querySelectorAll('.bouncy-tap').forEach(button => {
+            button.addEventListener('touchstart', () => {
+                button.classList.add('scale-90');
+            });
+            button.addEventListener('touchend', () => {
+                button.classList.remove('scale-90');
+            });
+        });
+        
+        // Dynamic active state logic for navigation is already handled by class application 
+        // in the generated HTML for the "Breakfast" tab as requested.
+    </script>
+</body></html>
